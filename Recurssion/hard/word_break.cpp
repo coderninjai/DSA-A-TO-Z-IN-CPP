@@ -40,3 +40,45 @@ int main()
          }
     return 0;
 }
+
+// SINCE THE TIME LIMIT IS EXCEEDING IN THE LEETCODE THIS IS THE OPTIMAL SOLUTIOIN 
+
+/*
+
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <unordered_map>
+using namespace std;
+
+class Solution {
+    public:
+    bool wordBreak(string s, vector<string>& wordDict) {
+        unordered_map<string, bool> memo;  
+        return solve(s, wordDict, memo);
+    }
+    
+    bool solve(string s, vector<string>& wordDict, unordered_map<string, bool>& memo) {
+        if (s.empty()) return true;
+        
+        if (memo.find(s) != memo.end()) {
+            return memo[s];  
+        }
+        
+        for (int i = 1; i <= s.length(); i++) {
+            string pre = s.substr(0, i);
+            
+            // check if prefix exists in wordDict
+            if (find(wordDict.begin(), wordDict.end(), pre) != wordDict.end()) {
+                string rest = s.substr(i);
+                
+                if (solve(rest, wordDict, memo)) {
+                    return memo[s] = true;
+                }
+            }
+        }
+        return memo[s] = false;
+    }
+};
+
+*/
