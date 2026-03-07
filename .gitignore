@@ -1,4 +1,4 @@
 # Ignore all executable files
 *.exe
 *.gitignore
-C:\Users\ASUS\Desktop\DSA atoz\log
+/log
